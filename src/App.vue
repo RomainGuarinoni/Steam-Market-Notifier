@@ -144,4 +144,10 @@ export default {
 button{
   outline-style: none;
 }
+::-webkit-scrollbar{
+  width: 2px;
+}
+::-webkit-scrollbar-thumb{
+  background: black;
+}
 </style>
