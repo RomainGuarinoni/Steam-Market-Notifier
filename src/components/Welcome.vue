@@ -1,6 +1,6 @@
 <template>
     <div id="welcome">
-        <h1> Welcome {{name}} sur Steam Market Notifier</h1>
+        <span class="title"> Welcome {{name}} sur Steam Market Notifier</span>
         <h2> The best market place for cs:go items</h2>
     </div>
   
@@ -16,9 +16,11 @@ export default {
 </script>
 
 <style>
-h1{
+.title{
     color: red;
-    font-size: 3em;
+    font-size: 5em;
+    font-weight: bold;
+    
 }
 #welcome{
     text-align: center;
