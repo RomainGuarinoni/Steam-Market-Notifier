@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Welcome  :name="name"/>
+    <Welcome />
     <Navbar />
     <router-view/>
   </div>

@@ -1,6 +1,6 @@
 <template>
     <div id="welcome">
-        <span class="title"> Welcome {{name}} sur Steam Market Notifier</span>
+        <span class="title"> Welcome sur Steam Market Notifier</span>
         <h2> The best market place for cs:go items</h2>
     </div>
   
@@ -10,7 +10,6 @@
 <script>
 export default {
     name : 'Welcome',
-    props : ['name']
 
 }
 </script>

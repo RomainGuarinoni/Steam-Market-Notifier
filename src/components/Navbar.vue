@@ -31,5 +31,6 @@ ul{
     background: rgb(235, 232, 232);
     width: 100%;
     padding: 15px 0;
+    margin: 0;
 }
 </style>

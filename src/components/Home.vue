@@ -66,9 +66,14 @@ export default {
 </script>
 
 <style scoped>
+.home{
+    padding: 0;
+    margin: 0;
+}
 .info{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin: 50px 100px 50px 200px ;
 }
 .info p{

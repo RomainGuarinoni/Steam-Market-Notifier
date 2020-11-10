@@ -1,20 +1,26 @@
 <template>
     <div>
         <div id="skinPreview">
-            <SkinPreview
-                v-for="item in skin"
-                :image="item.image"
-                :name="item.name"
-                :price="item.price"
-                :state="item.state"
-                :available="item.available"
-                :addToCart='addToCart'
-                :key="item.name"
-            />
-        </div>
-        <div class="cart_box">
-            <span class="Cart_title">Your Cart</span><button class="cart_button" @click='showCartFonction'>Afficher</button> <span><strong>Total : {{totalCart}} $</strong></span>
-            <Cart v-show="showCart" v-for="(item,index) in cart" :key="item.name" :name="item.name" :image='item.image' :price='item.price' :index='index' :deleteFromCart="deleteFromCart"  />
+          <transition name="cartFade">
+            <div v-show="cart.length>=1" class="cart_box">
+              <span class="cart_title">Your Cart</span><button class="cart_button" @click='showCartFonction'>Afficher</button> <span><strong>Total : {{totalCart}} $ </strong></span><span><strong>Item : {{totalItemCart}} </strong></span>
+              <!--<transition name="cart-fade">-->
+                <Cart v-show="showCart" v-for="(item,index) in cart" :key="index" :name="item.name" :image='item.image' :price='item.price' :index='index' :deleteFromCart="deleteFromCart"  />
+              <!--</transition>-->
+            </div>
+          </transition>
+          <SkinPreview
+              v-for="(item,index) in skin"
+              :image="item.image"
+              :name="item.name"
+              :price="item.price"
+              :state="item.state"
+              :quantity="item.quantity"
+              :addToCart='addToCart'
+              :index = 'index'
+              :notAvailable = 'notAvailable'
+              :key="item.name"
+          />
         </div>
     </div>
 </template>
@@ -35,7 +41,7 @@ export default {
           name : 'ak-47 Vulcan',
           price : 145,
           state : 'factory new',
-          available : false,
+          quantity : 10,
           image : {
             src: require("@/assets/ak-k7_vulcan.png"),
             alt : "photo de l'ak-47"
@@ -45,7 +51,7 @@ export default {
           name : 'awp Hyper beast',
           price : 70,
           state : 'batle scared',
-          available : true,
+          quantity : 1,
           image : {
             src: require("@/assets/awp_hyper_beast.png"),
             alt : "photo de l'awp"           
@@ -55,12 +61,72 @@ export default {
           name : 'M4A4 desolate space',
           price : 50,
           state : 'factory new',
-          available : true,
+          quantity : 0,
           image : {
             src: require("@/assets/m4a4_space.png"),
             alt : "photo de la m4a4" 
-          }
-        }
+          },
+        },
+        {
+          name : 'AK-47 Neon',
+          price : 150,
+          state : 'factory new',
+          quantity : 20,
+          image : {
+            src: require("@/assets/ak-47_neon.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'Awp wild fire',
+          price : 500,
+          state : 'factory new',
+          quantity : 5,
+          image : {
+            src: require("@/assets/awp_wild.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'Deagle Kumicho Dragon',
+          price : 0,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/deagle_kumicho.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'M4A41-S cyrex',
+          price : 2,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/m4a1s_cyrex.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'M4A4 neo noir',
+          price : 250,
+          state : 'factory new',
+          quantity : 3,
+          image : {
+            src: require("@/assets/m4a4_neo.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'MAC-10 neon',
+          price : 30,
+          state : 'factory new',
+          quantity : 7,
+          image : {
+            src: require("@/assets/mac10_neon.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
       ],
       cart : [
       ]
@@ -73,7 +139,10 @@ export default {
         total+=item.price;
       }
       return total;
-    }
+    },
+    totalItemCart(){
+      return this.cart.length
+    },
   },
   methods :{
     showCartFonction(){
@@ -84,17 +153,25 @@ export default {
         this.showCart=false;
       }
     },
-    addToCart(name_arg, price_arg,image_arg, available_arg){
-      if(available_arg==false){
-        alert('Ce skin n\'est pas disponible')
-      }
-      else{
+    addToCart(name_arg, price_arg,image_arg, quantity_arg, index_arg){
+      if(quantity_arg>0){
+        console.log(this.skin[index_arg].quantity)
+        this.skin[index_arg].quantity--;
         this.cart.push({name : name_arg, price: price_arg, image : image_arg})
       }
     },
     deleteFromCart(index){
-      console.log(index);
       this.cart.splice(index,1);
+      this.skin[index].quantity++;
+      console.log(this.skin[index].quantity);
+    },
+    notAvailable(index){
+      if (this.skin[index].quantity==0){
+          return true;
+      }
+      else{
+          return false;
+      }
     }
   }
 
@@ -102,6 +179,20 @@ export default {
 </script>
 
 <style scoped>
+.cartFade-enter-active, .cartFade-leave-active{
+  transition: opacity 1s;
+}
+.cartFade-enter, .cartFade-leave-to{
+  opacity: 0;
+}
+
+.cart_title{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.cart_box span{
+  margin-right: 20px;
+}
 #skinPreview{
   display: flex;
   flex-wrap: wrap;
@@ -109,7 +200,7 @@ export default {
 }
 .cart_box{
   margin-top: 30px;
-  width: 800px;
+  width: 100%;
   height: auto;
 }
 .Cart_title{
@@ -117,15 +208,7 @@ export default {
   font-weight: bold;
   text-decoration: underline;
 }
-.cart_button{
-  border: none;
-  border-radius: 30px;
-  padding: 8px;
-  cursor: pointer;
-  margin-left: 20px;
-  font-size: 1.2em;
-  margin: 20px 20px;
-}
+
 .cart_button:hover{
     box-shadow: 2px 2px 2px rgba(95, 94, 94, 0.63);
     font-weight: bold;
