@@ -46,6 +46,12 @@
             </ul>
             <p><img :src="image_5" alt=""></p>
         </div>
+        <div class="info">
+            <p><img :src="image_6" alt=""></p>
+            <p>Rejoins une grande communauité de joueur stylé grâce aux skins !! Tous les pro possèdent des skins, et frâce a ce site, tu pourras achter tes skins péféré
+                au prix de ton choix!! N'attends plus , va dans le skin store et choisis les skin de ton rêve !!
+            </p>
+        </div>
     </div>
 </div>
 </template>
@@ -59,7 +65,8 @@ export default {
             image_2: require('@/assets/skin.png'),
             image_3 : require('@/assets/woman.png'),
             image_4: require('@/assets/info.png'),
-            image_5 : require('@/assets/knife.png')
+            image_5 : require('@/assets/knife.png'),
+            image_6 : require('@/assets/player.png')
         }
     }
 }
@@ -88,7 +95,10 @@ export default {
 .info_title{
     font-size: 4em;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 90px;
+}
+.info:last-child{
+    margin-bottom: 0;
 }
 .carousel .carousel-item {
   height: 500px;

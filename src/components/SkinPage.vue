@@ -3,10 +3,20 @@
         <div id="skinPreview">
           <transition name="cartFade">
             <div v-show="cart.length>=1" class="cart_box">
-              <span class="cart_title">Your Cart</span><button class="cart_button" @click='showCartFonction'>Afficher</button> <span><strong>Total : {{totalCart}} $ </strong></span><span><strong>Item : {{totalItemCart}} </strong></span>
-              <!--<transition name="cart-fade">-->
-                <Cart v-show="showCart" v-for="(item,index) in cart" :key="index" :name="item.name" :image='item.image' :price='item.price' :index='index' :deleteFromCart="deleteFromCart"  />
-              <!--</transition>-->
+              <span class="cart_title">Your Cart</span>
+              <button class="cart_button" @click='showCartFonction'>Afficher</button> 
+              <span><strong>Total : {{totalCart}} $ </strong></span>
+              <span><strong>Item : {{totalItemCart}} </strong></span>
+              <Cart 
+              v-show="showCart" 
+              v-for="(item,index) in cart" 
+              :key="index" 
+              :name="item.name" 
+              :image='item.image' 
+              :price='item.price' 
+              :index='index' 
+              :deleteFromCart="deleteFromCart"  
+              />
             </div>
           </transition>
           <SkinPreview
@@ -17,8 +27,8 @@
               :state="item.state"
               :quantity="item.quantity"
               :addToCart='addToCart'
-              :index = 'index'
-              :notAvailable = 'notAvailable'
+              :index ='index'
+              :notAvailable ='notAvailable'
               :key="item.name"
           />
         </div>
@@ -155,15 +165,16 @@ export default {
     },
     addToCart(name_arg, price_arg,image_arg, quantity_arg, index_arg){
       if(quantity_arg>0){
-        console.log(this.skin[index_arg].quantity)
         this.skin[index_arg].quantity--;
-        this.cart.push({name : name_arg, price: price_arg, image : image_arg})
+        this.cart.push({name : name_arg, price: price_arg, image : image_arg, index : index_arg})
       }
+      console.log(index_arg);
     },
     deleteFromCart(index){
+      console.log(this.cart[index].index);
+      this.skin[this.cart[index].index].quantity++;
       this.cart.splice(index,1);
-      this.skin[index].quantity++;
-      console.log(this.skin[index].quantity);
+      
     },
     notAvailable(index){
       if (this.skin[index].quantity==0){
