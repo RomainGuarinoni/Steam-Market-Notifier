@@ -1,6 +1,6 @@
 <template>
     <div id="welcome">
-        <img class="logo" :src="logo" alt="logo de steam">
+        <router-link :to="{name : 'Home'}"><img class="logo" :src="logo" alt="logo de steam"></router-link>
         <span class="title"> Welcome on Steam Market Notifier</span>
         <h2> The best market place for cs:go items</h2>
     </div>

@@ -14,7 +14,30 @@
 <script>
 export default {
   name : 'Cart',
-  props : ['name', 'image','price','index','deleteFromCart','quantity'],
+  props : {
+    name : {
+      type : String
+    },
+    image : {
+      type : Object,
+      default : function(){return{
+        src: require('@/assets/no_image.png'),
+        alt : 'no_image'
+      }}
+    },
+    price : {
+      type : Number
+    },
+    index : {
+      type : Number
+    },
+    deleteFromCart : {
+      type : Function
+    },
+    quantity : {
+      type : Number
+    }
+  }
 }
 </script>
 

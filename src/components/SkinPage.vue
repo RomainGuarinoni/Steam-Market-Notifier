@@ -87,6 +87,7 @@ export default {
             src: require("@/assets/ak-47_neon.png"),
             alt : "photo de la m4a4" 
           },
+          
         },
         {
           name : 'Awp wild fire',

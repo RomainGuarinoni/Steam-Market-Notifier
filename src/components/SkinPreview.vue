@@ -25,8 +25,42 @@
 <script>
 export default {
     name : 'SkinPreview',
-    props : ['image','name','price','state','quantity','addToCart','index','notAvailable'],
+    //props : ['image','name','price','state','quantity','addToCart','index','notAvailable']
+    props : {
+        image : {
+            type : Object,
+            default : function(){return{
+                src : require('@/assets/no_image.png'),
+                alt : 'no image'
+            }}
+        },
+        name : {
+            type : String
+        },
+        price: {
+            type : Number
+        },
+        state : {
+            type : String
+        },
+        quantity : {
+            type : Number,
+            default : 0
+        },
+        addToCart:{
+            type : Function
+        },
+        index : {
+            type : Number
+        },
+        notAvailable:{
+            type : Function
+        }
+
+    }
 }
+    
+
 </script>
 
 <style scoped>
@@ -44,7 +78,7 @@ button{
   outline-style: none;
 }
 img{
-    width: 300px;
+    width: 250px;
 }
 .skin_pic{
     height: 220px;
