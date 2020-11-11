@@ -14,6 +14,7 @@
               :name="item.name" 
               :image='item.image' 
               :price='item.price' 
+              :quantity ='item.quantity'
               :index='index' 
               :deleteFromCart="deleteFromCart"  
               />
@@ -164,16 +165,35 @@ export default {
       }
     },
     addToCart(name_arg, price_arg,image_arg, quantity_arg, index_arg){
-      if(quantity_arg>0){
-        this.skin[index_arg].quantity--;
-        this.cart.push({name : name_arg, price: price_arg, image : image_arg, index : index_arg})
+      let exist = false;
+      let index_cart = 0;
+      for(let i=0;i<this.cart.length;i++){
+        if (this.cart[i].index==index_arg){
+          exist=true;
+          index_cart=i;
+        }
       }
-      console.log(index_arg);
+      if(exist==true && this.skin[index_arg].quantity>=1){
+        this.skin[index_arg].quantity--;
+        this.cart[index_cart].quantity++;
+        this.cart[index_cart].price+=price_arg
+      }
+      else if(this.skin[index_arg].quantity>=1){
+        this.cart.push({name : name_arg, quantity : 1, price: price_arg, image : image_arg, index : index_arg});
+        this.skin[index_arg].quantity--;
+      }
+      
     },
     deleteFromCart(index){
-      console.log(this.cart[index].index);
-      this.skin[this.cart[index].index].quantity++;
-      this.cart.splice(index,1);
+      if(this.cart[index].quantity>1){
+        this.cart[index].price-=this.cart[index].price/this.cart[index].quantity;
+        this.cart[index].quantity--;
+        this.skin[this.cart[index].index].quantity++;
+      }
+      else{
+        this.skin[this.cart[index].index].quantity++;
+        this.cart.splice(index,1);
+      }
       
     },
     notAvailable(index){
@@ -190,7 +210,7 @@ export default {
 </script>
 
 <style scoped>
-.cartFade-enter-active, .cartFade-leave-active{
+.cartFade-enter-active {
   transition: opacity 1s;
 }
 .cartFade-enter, .cartFade-leave-to{

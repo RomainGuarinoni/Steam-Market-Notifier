@@ -3,6 +3,7 @@
     <div class="cart">
         <h3>{{name}} </h3>
         <img :src="image.src" :alt="image.alt">
+        <p><strong>quantity : {{quantity}} </strong></p>
         <p> <strong>{{price}} $</strong></p>
         <button class="cart_button" @click="deleteFromCart(index)">Delete</button>
     </div>
@@ -13,7 +14,7 @@
 <script>
 export default {
   name : 'Cart',
-  props : ['name', 'image','price','index','deleteFromCart'],
+  props : ['name', 'image','price','index','deleteFromCart','quantity'],
 }
 </script>
 

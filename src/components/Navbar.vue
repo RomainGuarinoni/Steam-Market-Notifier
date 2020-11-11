@@ -24,13 +24,17 @@ a{
 a:hover{
     color: rgb(255, 1, 1);
 }
+.navbar{
+    background: rgb(235, 232, 232);
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
 ul{
     display: flex;
     justify-content: space-around;
     list-style: none;
-    background: rgb(235, 232, 232);
     width: 100%;
-    padding: 15px 0;
     margin: 0;
 }
 </style>
