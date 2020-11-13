@@ -1,5 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from'../components/Home.vue'
+import SkinPageNav from '../components/SkinPageNav.vue'
+import SkinPage from'../components/SkinPage.vue'
+import Contact from '../components/Contact.vue'
+import Store from '../components/Store.vue'
 
 Vue.use(VueRouter)
 
@@ -7,17 +12,29 @@ const routes = [
   {
     path : '/',
     name : 'Home',
-    components : require('@/components/Home.vue')
+    component : Home
   },
   {
     path:'/SkinPage',
     name : 'SkinPage',
-    components : require("@/components/SkinPage.vue")
+    component : SkinPageNav,
+    children : [{
+      path : '',
+      name : 'basic',
+      component : Store
+    },
+    {
+      path : 'Skin/:id',
+      name: "Skin",
+      component : SkinPage,
+      props : true
+    }
+  ],
   },
   {
     path : '/Contact',
     name : 'Contact',
-    components : require('@/components/Contact.vue')
+    component : Contact
   }
 ];
 

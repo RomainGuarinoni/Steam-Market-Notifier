@@ -22,9 +22,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
-button{
-  outline-style: none;
-}
 ::-webkit-scrollbar{
   width: 2px;
 }

@@ -1,7 +1,7 @@
 <template>
     <div id="welcome">
         <router-link :to="{name : 'Home'}"><img class="logo" :src="logo" alt="logo de steam"></router-link>
-        <span class="title"> Welcome on Steam Market Notifier</span>
+        <span id="title_home"> Welcome on Steam Market Notifier</span>
         <h2> The best market place for cs:go items</h2>
     </div>
   
@@ -22,13 +22,14 @@ export default {
 </script>
 
 <style>
+
 .logo{
     position: relative;
     top: 10px;
     left: -100px;
     width: 150px;
 }
-.title{
+#title_home{
     color: red;
     font-size: 5em;
     font-weight: bold;

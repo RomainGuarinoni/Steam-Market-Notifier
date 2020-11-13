@@ -1,0 +1,137 @@
+/*skin : [
+        {
+          name : 'ak-47 Vulcan',
+          price : 145,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/ak-k7_vulcan.png"),
+            alt : "photo de l'ak-47"
+            },
+        },
+         {
+          name : 'ak-47 Vulcan',
+          price : 145,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/ak-k7_vulcan.png"),
+            alt : "photo de l'ak-47"
+            },
+        },
+         {
+          name : 'ak-47 Vulcan',
+          price : 145,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/ak-k7_vulcan.png"),
+            alt : "photo de l'ak-47"
+            },
+        },
+         {
+          name : 'ak-47 Vulcan',
+          price : 145,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/ak-k7_vulcan.png"),
+            alt : "photo de l'ak-47"
+            },
+        },
+         {
+          name : 'ak-47 Vulcan',
+          price : 145,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/ak-k7_vulcan.png"),
+            alt : "photo de l'ak-47"
+            },
+        },
+        {
+          name : 'awp Hyper beast',
+          price : 70,
+          state : 'batle scared',
+          quantity : 1,
+          image : {
+            src: require("@/assets/awp_hyper_beast.png"),
+            alt : "photo de l'awp"           
+          },
+        },
+        {
+          name : 'M4A4 desolate space',
+          price : 50,
+          state : 'factory new',
+          quantity : 0,
+          image : {
+            src: require("@/assets/m4a4_space.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'AK-47 Neon',
+          price : 150,
+          state : 'factory new',
+          quantity : 20,
+          image : {
+            src: require("@/assets/ak-47_neon.png"),
+            alt : "photo de la m4a4" 
+          },
+          
+        },
+        {
+          name : 'Awp wild fire',
+          price : 500,
+          state : 'factory new',
+          quantity : 5,
+          image : {
+            src: require("@/assets/awp_wild.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'Deagle Kumicho Dragon',
+          price : 0,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/deagle_kumicho.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'M4A41-S cyrex',
+          price : 2,
+          state : 'factory new',
+          quantity : 10,
+          image : {
+            src: require("@/assets/m4a1s_cyrex.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'M4A4 neo noir',
+          price : 250,
+          state : 'factory new',
+          quantity : 3,
+          image : {
+            src: require("@/assets/m4a4_neo.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+        {
+          name : 'MAC-10 neon',
+          price : 30,
+          state : 'factory new',
+          quantity : 7,
+          image : {
+            src: require("@/assets/mac10_neon.png"),
+            alt : "photo de la m4a4" 
+          },
+        },
+      ],
+      cart : [
+      ]
+    }
+  },*/

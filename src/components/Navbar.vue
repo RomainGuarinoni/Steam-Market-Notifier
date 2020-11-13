@@ -1,9 +1,9 @@
 <template>
   <div class="navbar">
     <ul>
-        <li><router-link :to="{name : 'Home'}"> Home</router-link></li>
-        <li><router-link :to="{name : 'SkinPage'}"> Skin Store</router-link></li>
-        <li><router-link :to="{name : 'Contact'}"> Contact</router-link></li>
+        <li><router-link class="navbar_main" :to="{name : 'Home'}"> Home</router-link></li>
+        <li><router-link class="navbar_main" :to="{name : 'basic'}"> Skin Store</router-link></li>
+        <li><router-link class="navbar_main" :to="{name : 'Contact'}"> Contact</router-link></li>
     </ul>
   </div>
 </template>
@@ -15,13 +15,13 @@ export default {
 </script>
 
 <style scoped>
-a{
+.navbar_main{
     text-decoration: none;
     color: black;
     font-size: 1.5em;
     transition: all ease 150ms;
 }
-a:hover{
+.navbar_main:hover{
     color: rgb(255, 1, 1);
 }
 .navbar{

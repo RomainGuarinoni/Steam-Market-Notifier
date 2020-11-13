@@ -12,9 +12,9 @@
                     <p class="available"><strong>quantity :</strong> {{quantity}} </p>
                 </div>
                 <div class="button">
-                    <button @click="addToCart(name,price,image,quantity,index)">Ajouter le skin</button>
+                    <button @click="addToCart(name,price,image,quantity,index,id)">Ajouter le skin</button>
                 </div>
-                <div v-show="notAvailable(index)" class="alert">
+                <div v-show="notAvailable(index,id)" class="alert">
                     <p>This skin is no longer available</p>
                 </div>
             </div>
@@ -33,6 +33,9 @@ export default {
                 src : require('@/assets/no_image.png'),
                 alt : 'no image'
             }}
+        },
+        id:{
+            type: Number
         },
         name : {
             type : String
@@ -73,6 +76,7 @@ export default {
 }
 .alert p{
     color: red;
+    font-size: 0.7em;
 }
 button{
   outline-style: none;
@@ -90,7 +94,7 @@ img{
     margin:20px 20px;
     border-radius: 20px;
     width: 550px;
-    height: 250px;
+    height: 280px;
 }
 .skin_box_info{
     display: flex;

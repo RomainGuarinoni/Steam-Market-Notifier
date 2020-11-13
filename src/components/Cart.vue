@@ -5,7 +5,7 @@
         <img :src="image.src" :alt="image.alt">
         <p><strong>quantity : {{quantity}} </strong></p>
         <p> <strong>{{price}} $</strong></p>
-        <button class="cart_button" @click="deleteFromCart(index)">Delete</button>
+        <button class="cart_button" @click="deleteFromCart(index,id_arg)">Delete</button>
     </div>
     <hr/>
   </div>
@@ -17,6 +17,9 @@ export default {
   props : {
     name : {
       type : String
+    },
+    id:{
+      type : Number
     },
     image : {
       type : Object,
@@ -61,12 +64,7 @@ export default {
 img{
   width: 200px;
 }
-button{
-    border: none;
-    border-radius: 30px;
-    padding: 8px;
-    cursor: pointer;
-}
+
 button:hover{
     box-shadow: 2px 2px 2px rgba(95, 94, 94, 0.63);
 }
