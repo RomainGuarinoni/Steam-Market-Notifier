@@ -5,7 +5,7 @@
         <img :src="image.src" :alt="image.alt">
         <p><strong>quantity : {{quantity}} </strong></p>
         <p> <strong>{{price}} $</strong></p>
-        <button class="cart_button" @click="deleteFromCart(index,id_arg)">Delete</button>
+        <button class="cart_button" @click="deleteFromCart(index)">Delete</button>
     </div>
     <hr/>
   </div>
@@ -17,9 +17,6 @@ export default {
   props : {
     name : {
       type : String
-    },
-    id:{
-      type : Number
     },
     image : {
       type : Object,

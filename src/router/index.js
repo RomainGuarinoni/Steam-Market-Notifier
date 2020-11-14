@@ -16,7 +16,6 @@ const routes = [
   },
   {
     path:'/SkinPage',
-    name : 'SkinPage',
     component : SkinPageNav,
     children : [{
       path : '',

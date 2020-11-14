@@ -14,7 +14,6 @@
                 :name="item.name" 
                 :image='item.image' 
                 :price='item.price' 
-                :id='id'
                 :quantity ='item.quantity'
                 :index='index' 
                 :deleteFromCart="deleteFromCart"  
@@ -31,7 +30,6 @@
                 :quantity="item.quantity"
                 :addToCart='addToCart'
                 :index ='index'
-                :id='id'
                 :notAvailable ='notAvailable'
                 :key="index"
             />     
@@ -40,7 +38,7 @@
 </template>
 
 <script>
-
+import {mapState} from 'vuex'
 import SkinPreview from'./SkinPreview'
 import Cart from './Cart'
 export default {
@@ -52,168 +50,10 @@ export default {
     return {
       name: 'Romain',
       showCart : false,
-      skin: [
-        [
-          {
-          name : 'ak-47 Vulcan',
-          price : 145,
-          state : 'factory new',
-          quantity : 10,
-          image : {
-            src: require("@/assets/ak-k7_vulcan.png"),
-            alt : "photo de l'ak-47"
-            },
-          },
-          {
-          name : 'AK-47 Neon',
-          price : 150,
-          state : 'factory new',
-          quantity : 20,
-          image : {
-            src: require("@/assets/ak-47_neon.png"),
-            alt : "photo de la m4a4" 
-            },
-          },
-          {
-          name : 'salope',
-          price : 145,
-          state : 'factory new',
-          quantity : 10,
-          image : {
-            src: require("@/assets/ak-k7_vulcan.png"),
-            alt : "photo de l'ak-47"
-            },
-          },
-          {
-          name : 'pute',
-          price : 145,
-          state : 'factory new',
-          quantity : 10,
-          image : {
-            src: require("@/assets/ak-k7_vulcan.png"),
-            alt : "photo de l'ak-47"
-            },
-          },
-        ],
-        [
-          {
-          name : 'M4A4 desolate space',
-          price : 50,
-          state : 'factory new',
-          quantity : 0,
-          image : {
-            src: require("@/assets/m4a4_space.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'M4A41-S cyrex',
-          price : 2,
-          state : 'factory new',
-          quantity : 10,
-          image : {
-            src: require("@/assets/m4a1s_cyrex.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'M4A4 neo noir',
-          price : 250,
-          state : 'factory new',
-          quantity : 3,
-          image : {
-            src: require("@/assets/m4a4_neo.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        ],
-        [
-          {
-          name : 'awp Hyper beast',
-          price : 70,
-          state : 'batle scared',
-          quantity : 1,
-          image : {
-            src: require("@/assets/awp_hyper_beast.png"),
-            alt : "photo de l'awp"           
-          },
-        },
-        {
-          name : 'Awp wild fire',
-          price : 500,
-          state : 'factory new',
-          quantity : 5,
-          image : {
-            src: require("@/assets/awp_wild.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'Awp wild fire',
-          price : 500,
-          state : 'factory new',
-          quantity : 5,
-          image : {
-            src: require("@/assets/awp_wild.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'Awp wild fire',
-          price : 500,
-          state : 'factory new',
-          quantity : 5,
-          image : {
-            src: require("@/assets/awp_wild.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'Awp wild fire',
-          price : 500,
-          state : 'factory new',
-          quantity : 5,
-          image : {
-            src: require("@/assets/awp_wild.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'Awp wild fire',
-          price : 500,
-          state : 'factory new',
-          quantity : 5,
-          image : {
-            src: require("@/assets/awp_wild.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'Awp wild fire',
-          price : 500,
-          state : 'factory new',
-          quantity : 5,
-          image : {
-            src: require("@/assets/awp_wild.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-        {
-          name : 'Awp wild fire',
-          price : 500,
-          state : 'factory new',
-          quantity : 5,
-          image : {
-            src: require("@/assets/awp_wild.png"),
-            alt : "photo de la m4a4" 
-          },
-        },
-      ]
-    ],
-    cart : []
   }
 },
   computed : {
+    ...mapState(['skin', 'cart']),
     totalCart(){
       let total=0;
       for(let item of this.cart){
@@ -226,6 +66,12 @@ export default {
     },
   },
   methods :{
+    /*addToCart(name, price,image, quantity, index){
+      this.$store.dispatch('addToCart',{name : name, price : price, image : image, quantity : quantity, index : index, id : this.id});
+    },
+    deleteFromCart(index){
+      this.$store.dispatch('deleteFromCart',{index : index});
+    },*/
     showCartFonction(){
       if(this.showCart==false){
         this.showCart=true;
@@ -234,23 +80,23 @@ export default {
         this.showCart=false;
       }
     },
-    addToCart(name_arg, price_arg,image_arg, quantity_arg, index_arg, id_arg){
+    addToCart(name_arg, price_arg,image_arg, quantity_arg, index_arg){
       let exist = false;
       let index_cart = 0;
       for(let i=0;i<this.cart.length;i++){
-        if (this.cart[i].index==index_arg && this.cart[i].id==id_arg){
+        if (this.cart[i].index==index_arg && this.cart[i].id==this.id){
           exist=true;
           index_cart=i;
         }
       }
-      if(exist==true && this.skin[id_arg][index_arg].quantity>=1){
-        this.skin[id_arg][index_arg].quantity--;
+      if(exist==true && this.skin[this.id][index_arg].quantity>=1){
+        this.skin[this.id][index_arg].quantity--;
         this.cart[index_cart].quantity++;
         this.cart[index_cart].price+=price_arg
       }
-      else if(this.skin[id_arg][index_arg].quantity>=1){
-        this.cart.push({name : name_arg, quantity : 1, price: price_arg, image : image_arg, index : index_arg, id : id_arg});
-        this.skin[id_arg][index_arg].quantity--;
+      else if(this.skin[this.id][index_arg].quantity>=1){
+        this.cart.push({name : name_arg, quantity : 1, price: price_arg, image : image_arg, index : index_arg, id : this.id});
+        this.skin[this.id][index_arg].quantity--;
       }
     },
     deleteFromCart(index){
