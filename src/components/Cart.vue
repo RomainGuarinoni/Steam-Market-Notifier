@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="cart">
-        <h3>{{name}} </h3>
+        <h3 id="title_cart">{{name}} </h3>
         <img :src="image.src" :alt="image.alt">
         <p><strong>quantity : {{quantity}} </strong></p>
         <p> <strong>{{price}} $</strong></p>
@@ -42,7 +42,10 @@ export default {
 </script>
 
 <style>
-
+#title_cart{
+  width: 300px;
+}
+.cart_button:active {outline-style:none;}
 .cart_button{
   border: none;
   border-radius: 20px;

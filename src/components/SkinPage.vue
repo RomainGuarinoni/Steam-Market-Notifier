@@ -19,7 +19,7 @@
 
 <script>
 import {mapState} from 'vuex'
-import SkinPreview from'./SkinPreview'
+import SkinPreview from'./SkinPreview.vue'
 export default {
     name : 'SkinPage',
     components: { SkinPreview
@@ -37,9 +37,6 @@ export default {
   methods :{
     addToCart(name, price,image, quantity, index){
       this.$store.dispatch('addToCart',{name : name, price : price, image : image, quantity : quantity, index : index, id : this.id});
-    },
-    deleteFromCart(index){
-      this.$store.dispatch('deleteFromCart',{index : index});
     },
     showCartFonction(){
       if(this.showCart==false){
