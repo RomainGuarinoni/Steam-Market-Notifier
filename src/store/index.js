@@ -174,7 +174,7 @@ export default new Vuex.Store({
       state.skin[state.cart[payload.index].id][state.cart[payload.index].index].quantity++;
     },
     REDUCE_QTTY_CART(state, payload){
-      state.cart[payload.index]--;
+      state.cart[payload.index].quantity--;
     },
     INCREASE_QTTY_CART(state,payload){
       state.cart[payload.index].quantity++;
@@ -186,41 +186,41 @@ export default new Vuex.Store({
       state.cart[payload.index].price-=state.cart[payload.index].price/state.cart[payload.index].quantity;
     },
     CART_ADD_ITEM(state,payload){
-      state.cart.push({name : payload.name, quantity : 1, price: payload.price, image : payload.image, index : payload.index, id : payload.id});  
+      state.cart.push({name : payload.name, quantity : 1, price: payload.price, image : payload.image, index : payload.index, id : payload.id});
     },
     CARD_REMOVE_ITEM(state,payload){
       state.cart.splice(payload.index,1);
     }
   },
   actions: {
-    addToCart({state,commit}, payload){
+    addToCart(context, payload){
       let exist = false;
       let index_cart = 0;
-      for(let i=0;i<state.cart.length;i++){
-        if (state.cart[i].index==payload.index && this.cart[i].id==payload.id){
+      for(let i=0;i<context.state.cart.length;i++){
+        if (context.state.cart[i].index==payload.index && context.state.cart[i].id==payload.id){
           exist=true;
           index_cart=i;
         }
       }
-      if(exist==true && state.skin[payload.id][payload.index].quantity>=1){
-        commit('REDUCE_QTTY_SKIN',{id : payload.id, index: payload.index});
-        commit('INCREASE_QTTY_CART',{index : index_cart});
-        commit('INCREASE_PRICE_CART',{index : index_cart, price : payload.price});
+      if(exist==true && context.state.skin[payload.id][payload.index].quantity>=1){
+        context.commit('REDUCE_QTTY_SKIN',{id : payload.id, index: payload.index});
+        context.commit('INCREASE_QTTY_CART',{index : index_cart});
+        context.commit('INCREASE_PRICE_CART',{index : index_cart, price : payload.price});
       }
-      else if(this.skin[payload.id][payload.index].quantity>=1){
-        commit('CART_ADD_ITEM',{name : payload.name,price: payload.price,image : payload.image,index : payload.index, id : payload.id});
-        commit('REDUCE_QTTY_SKIN',{id : payload.id, index : payload.index});
+      else if(context.state.skin[payload.id][payload.index].quantity>=1){
+        context.commit('CART_ADD_ITEM',{name : payload.name,price: payload.price,image : payload.image,index : payload.index, id : payload.id});
+        context.commit('REDUCE_QTTY_SKIN',{id : payload.id, index : payload.index});
       }
     },
-    deleteFromCart({state,commit},payload){
-      if(state.cart[payload.index].quantity>1){
-        commit('REDUCE_PRICE_CART',{index: payload.index});
-        commit('REDUCE_QTTY_CART',{index : payload.index});
-        commit('INCREASE_QTTY_SKIN',{index : payload.index});
+    deleteFromCart(context,payload){
+      if(context.state.cart[payload.index].quantity>1){
+        context.commit('REDUCE_PRICE_CART',{index: payload.index});
+        context.commit('REDUCE_QTTY_CART',{index : payload.index});
+        context.commit('INCREASE_QTTY_SKIN',{index : payload.index});
       }
       else{
-        commit('INCREASE_QTTY_SKIN',{index : payload.index});
-        commit('CARD_REMOVE_ITEM',{index : payload.index});
+        context.commit('INCREASE_QTTY_SKIN',{index : payload.index});
+        context.commit('CARD_REMOVE_ITEM',{index : payload.index});
       }
     }
   },

@@ -3,7 +3,7 @@
     <ul>
         <li><router-link class="navbar_main" :to="{name : 'Home'}"> Home</router-link></li>
         <li><router-link class="navbar_main" :to="{name : 'basic'}"> Skin Store</router-link></li>
-        <li><router-link class="navbar_main" :to="{name : 'Contact'}"> Contact</router-link></li>
+        <li><router-link class="navbar_main" :to="{name : 'YourSkins'}"> Your Skins</router-link></li>
     </ul>
   </div>
 </template>

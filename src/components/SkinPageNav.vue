@@ -23,7 +23,7 @@ export default {
 <style scoped>
 .skinPage{
     display: flex;
-    height: 100vh;
+    height: 73vh;
 }
 .nav_select{
     text-align: center;

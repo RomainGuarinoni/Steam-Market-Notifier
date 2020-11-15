@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from'../components/Home.vue'
 import SkinPageNav from '../components/SkinPageNav.vue'
 import SkinPage from'../components/SkinPage.vue'
-import Contact from '../components/Contact.vue'
+import YourSkins from '../components/YourSkins.vue'
 import Store from '../components/Store.vue'
 
 Vue.use(VueRouter)
@@ -15,7 +15,7 @@ const routes = [
     component : Home
   },
   {
-    path:'/SkinPage',
+    path:'/SkinStore',
     component : SkinPageNav,
     children : [{
       path : '',
@@ -31,9 +31,9 @@ const routes = [
   ],
   },
   {
-    path : '/Contact',
-    name : 'Contact',
-    component : Contact
+    path : '/YourSkins',
+    name : 'YourSkins',
+    component : YourSkins
   }
 ];
 
