@@ -14,12 +14,10 @@
                 :key="index"
             />     
         </div>
-        <button @click="test">test</button>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
 import {mapState} from 'vuex'
 import SkinPreview from'./SkinPreview.vue'
 export default {
@@ -56,12 +54,6 @@ export default {
           return false;
       }
     },
-    async test(){
-      const test = await axios.get('http://api.steamapis.com/market/items/730?api_key=EQaV7_NxMwv6Vz5yMCvfHPlJTSs')
-      const awp = await axios.get('http://api.steamapis.com/market/item/730/AWP | Hyper Beast (Factory New)?api_key=EQaV7_NxMwv6Vz5yMCvfHPlJTSs')
-      console.log(test.data)
-      console.log(awp.data)
-    }
   },
   mounted(){
     this.$store.dispatch('uptadePriceSkins')
