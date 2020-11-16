@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -8,8 +9,8 @@ export default new Vuex.Store({
     skin: [
       [
         {
-        name : 'ak-47 Vulcan',
-        price : 145,
+        name : 'AK-47 | Vulcan (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 10,
         image : {
@@ -18,8 +19,8 @@ export default new Vuex.Store({
           },
         },
         {
-        name : 'AK-47 Neon',
-        price : 150,
+        name : 'AK-47 | Neon Rider (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 20,
         image : {
@@ -28,9 +29,9 @@ export default new Vuex.Store({
           },
         },
         {
-        name : 'salope',
-        price : 145,
-        state : 'factory new',
+        name : 'AK-47 | Vulcan (Field-Tested)',
+        price : 0,
+        state : 'Field-test',
         quantity : 10,
         image : {
           src: require("@/assets/ak-k7_vulcan.png"),
@@ -38,9 +39,9 @@ export default new Vuex.Store({
           },
         },
         {
-        name : 'pute',
-        price : 145,
-        state : 'factory new',
+        name : 'AK-47 | Vulcan (Well-Worn)',
+        price : 0,
+        state : 'Well Worn',
         quantity : 10,
         image : {
           src: require("@/assets/ak-k7_vulcan.png"),
@@ -50,8 +51,8 @@ export default new Vuex.Store({
       ],
       [
         {
-        name : 'M4A4 desolate space',
-        price : 50,
+        name : 'M4A4 | Desolate Space (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 0,
         image : {
@@ -60,8 +61,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'M4A41-S cyrex',
-        price : 2,
+        name : 'M4A1-S | Cyrex (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 10,
         image : {
@@ -70,8 +71,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'M4A4 neo noir',
-        price : 250,
+        name : 'M4A4 | Neo-Noir (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 3,
         image : {
@@ -82,8 +83,8 @@ export default new Vuex.Store({
       ],
       [
         {
-        name : 'awp Hyper beast',
-        price : 70,
+        name : 'AWP | Hyper Beast (Factory New)',
+        price : 0,
         state : 'batle scared',
         quantity : 1,
         image : {
@@ -92,8 +93,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Awp wild fire',
-        price : 500,
+        name : 'AWP | Wildfire (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 5,
         image : {
@@ -102,8 +103,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Awp wild fire',
-        price : 500,
+        name : 'AWP | Wildfire (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 5,
         image : {
@@ -112,8 +113,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Awp wild fire',
-        price : 500,
+        name : 'AWP | Wildfire (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 5,
         image : {
@@ -122,8 +123,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Awp wild fire',
-        price : 500,
+        name : 'AWP | Wildfire (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 5,
         image : {
@@ -132,8 +133,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Awp wild fire',
-        price : 500,
+        name : 'AWP | Wildfire (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 5,
         image : {
@@ -142,8 +143,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Awp wild fire',
-        price : 500,
+        name : 'AWP | Wildfire (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 5,
         image : {
@@ -152,8 +153,8 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Awp wild fire',
-        price : 500,
+        name : 'AWP | Wildfire (Factory New)',
+        price : 0,
         state : 'factory new',
         quantity : 5,
         image : {
@@ -190,6 +191,9 @@ export default new Vuex.Store({
     },
     CARD_REMOVE_ITEM(state,payload){
       state.cart.splice(payload.index,1);
+    },
+    UPDATE_PRICE(state,payload){
+      state.skin[payload.id][payload.index].price=payload.price;
     }
   },
   actions: {
@@ -221,6 +225,15 @@ export default new Vuex.Store({
       else{
         context.commit('INCREASE_QTTY_SKIN',{index : payload.index});
         context.commit('CARD_REMOVE_ITEM',{index : payload.index});
+      }
+    },
+    async uptadePriceSkins(context){
+      for(let id=0;id<context.state.skin.length;id++){
+        for(let index=0;index<context.state.skin[id].length;index++){
+          const name=context.state.skin[id][index].name;
+          const test = await axios.get('http://api.steamapis.com/market/item/730/'+name+'?api_key=EQaV7_NxMwv6Vz5yMCvfHPlJTSs')
+          context.commit('UPDATE_PRICE',{ id : id, index : index, price :test.data.median_avg_prices_15days[14][1]})
+        }
       }
     }
   },
