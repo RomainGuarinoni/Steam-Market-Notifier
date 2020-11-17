@@ -8,8 +8,8 @@
                 :price="item.price"
                 :state="item.state"   
                 :quantity="item.quantity"
-                :addToCart='addToCart'
                 :index ='index'
+                :id ='id'
                 :notAvailable ='notAvailable'
                 :key="index"
             />     
@@ -35,17 +35,6 @@ export default {
     ...mapState(['skin']),
   },
   methods :{
-    addToCart(name, price,image, quantity, index){
-      this.$store.dispatch('addToCart',{name : name, price : price, image : image, quantity : quantity, index : index, id : this.id});
-    },
-    showCartFonction(){
-      if(this.showCart==false){
-        this.showCart=true;
-      }
-      else{
-        this.showCart=false;
-      }
-    },
     notAvailable(index){
       if (this.skin[this.id][index].quantity==0){
           return true;
@@ -57,6 +46,7 @@ export default {
   },
   mounted(){
     this.$store.dispatch('uptadePriceSkins')
+    console.log(this.id)
   },
 }
 </script>

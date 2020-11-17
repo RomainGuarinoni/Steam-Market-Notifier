@@ -6,23 +6,21 @@
                 <img :src="image.src" :alt="image.alt"/>
             </div>
             <div class="skin_info">
-                <div class="skin_info_stat">
-                    <p class="price_skin"><strong>price :</strong> {{price}} $</p>
-                    <p class="stat_skin"><strong>state :</strong> {{state}}</p>
-                    <p class="available"><strong>quantity :</strong> {{quantity}} </p>
-                </div>
-                <div class="button">
-                    <button @click="addToCart(name,price,image,quantity,index)">Ajouter le skin</button>
-                </div>
-                <div v-show="notAvailable(index)" class="alert">
-                    <p>This skin is no longer available</p>
-                </div>
+                <p><strong>price :</strong> {{price}} $</p>
+                <p><strong>state :</strong> {{state}}</p> 
             </div>
         </div>
+        <div class="button">
+            <button @click="upgradeSkinZoom">Add Skins</button>
+        </div>
+        <div v-show="notAvailable(index)" class="alert">
+            <p>This skin is already in your Cart</p>
+        </div>  
     </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     name : 'SkinPreview',
     //props : ['image','name','price','state','quantity','addToCart','index','notAvailable']
@@ -36,6 +34,9 @@ export default {
         },
         name : {
             type : String
+        },
+        id : {
+            type: String
         },
         price: {
             type : Number
@@ -57,6 +58,21 @@ export default {
             type : Function
         }
 
+    },
+    computed : {
+        ...mapState(['skinZoom'])
+    },
+    methods: {
+        upgradeSkinZoom(){
+            this.skinZoom.name=this.name;
+            this.skinZoom.index= this.index;
+            this.skinZoom.id=this.id;
+            this.skinZoom.state=this.state;
+            this.skinZoom.image=this.image;
+            this.skinZoom.price=this.price;
+            this.skinZoom.blur=true;
+            this.skinZoom.display=true;
+        }
     }
 }
     
@@ -68,18 +84,18 @@ export default {
     opacity: 0.5;
 }
 .alert{
-    margin-top: 5px;
+    text-align: center;
     padding: 0;
 }
 .alert p{
     color: red;
-    font-size: 0.7em;
+    font-size: 0.9em;
 }
 button{
   outline-style: none;
 }
 img{
-    width: 250px;
+    width: 300px;
 }
 .skin_pic{
     height: 220px;
@@ -94,6 +110,8 @@ img{
     height: 280px;
 }
 .skin_box_info{
+    margin-top: 30px;
+    height: 150px;
     display: flex;
     align-items: center;
 
@@ -102,16 +120,13 @@ img{
 .skin_info{
     display: flex;
     flex-direction: column;
-    height: 180px;
+    justify-content: center;
+    height: 110px;
     width: 100%;
-    margin-right: 20px;
+    margin-left:15px;
 }
 .skin_name{
     text-align: left;
-}
-.skin_info_stat{
-    margin-left: 20px;
-
 }
 
 h3{
@@ -119,10 +134,12 @@ h3{
     font-size: 2em;
     padding: 0;
     margin: 0;
+    font-weight: bold;
     text-align: center;
 }
 .button{
     text-align: right;
+    margin-right: 30px;
 }
 button{
     border: none;

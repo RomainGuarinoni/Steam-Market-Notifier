@@ -22,7 +22,7 @@
       :price="item.price"
       :index="index"
       :deleteFromCart="deleteFromCart"
-      :quantity="item.quantity"
+      :price_act="item.price_act"
       />
     </div>
   </div>

@@ -13,8 +13,10 @@ export default {
 
 <style>
 .store{
+    
     text-align: center;
     margin-top: 150px;
+    margin-left: 300px;
 }
 .title_store{
     color: red;

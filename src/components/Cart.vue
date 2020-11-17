@@ -3,8 +3,8 @@
     <div class="cart">
         <h3 id="title_cart">{{name}} </h3>
         <img :src="image.src" :alt="image.alt">
-        <p><strong>quantity : {{quantity}} </strong></p>
         <p> <strong>{{priceRound}} $</strong></p>
+        <p><strong>Price margin : {{differencePrice}} $</strong> </p>
         <button class="cart_button" @click="deleteFromCart(index)">Delete</button>
     </div>
     <hr/>
@@ -34,13 +34,16 @@ export default {
     deleteFromCart : {
       type : Function
     },
-    quantity : {
+    price_act : {
       type : Number
     }
   },
   computed:{
     priceRound(){
-      return Math.round(this.price*100)/100;
+      return Math.round(this.price_act*100)/100;
+    },
+    differencePrice(){
+      return Math.round((this.price_act - this.price)*100)/100
     }
   }
 }
