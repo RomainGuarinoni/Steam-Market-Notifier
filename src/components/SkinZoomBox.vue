@@ -54,7 +54,7 @@ export default {
     position: absolute;
     margin-left: 200px;
     border: none;
-    background: rgb(228, 225, 225);
+    background: white;
 }
 .button_close:hover{
     box-shadow: none;
@@ -97,7 +97,7 @@ label{
     height: 500px;
     width: 800px;
     border-radius: 20px;
-    background: rgb(228, 225, 225);
+    background: white;
 }
 .zoomImg{
     text-align: center;
