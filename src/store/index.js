@@ -232,7 +232,7 @@ export default new Vuex.Store({
         for(let index=0;index<context.state.skin[id].length;index++){
           const name=context.state.skin[id][index].name;
           const test = await axios.get('http://api.steamapis.com/market/item/730/'+name+'?api_key=EQaV7_NxMwv6Vz5yMCvfHPlJTSs')
-          context.commit('UPDATE_PRICE',{ id : id, index : index, price :test.data.median_avg_prices_15days[14][1]})
+          context.commit('UPDATE_PRICE',{ id : id, index : index, price :Math.round(test.data.median_avg_prices_15days[14][1]*100)/100})
         }
       }
     }

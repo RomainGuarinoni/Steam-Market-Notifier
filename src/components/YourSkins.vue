@@ -45,7 +45,7 @@ export default {
       for(let item of this.cart){
         total+=item.price;
       }
-      return total;
+      return Math.round(total*100)/100;
     }
   },
   methods:{

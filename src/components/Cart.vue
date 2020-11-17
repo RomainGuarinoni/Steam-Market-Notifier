@@ -4,7 +4,7 @@
         <h3 id="title_cart">{{name}} </h3>
         <img :src="image.src" :alt="image.alt">
         <p><strong>quantity : {{quantity}} </strong></p>
-        <p> <strong>{{price}} $</strong></p>
+        <p> <strong>{{priceRound}} $</strong></p>
         <button class="cart_button" @click="deleteFromCart(index)">Delete</button>
     </div>
     <hr/>
@@ -36,6 +36,11 @@ export default {
     },
     quantity : {
       type : Number
+    }
+  },
+  computed:{
+    priceRound(){
+      return Math.round(this.price*100)/100;
     }
   }
 }

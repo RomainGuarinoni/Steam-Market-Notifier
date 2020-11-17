@@ -6,7 +6,7 @@
                 :image="item.image"
                 :name="item.name"
                 :price="item.price"
-                :state="item.state"
+                :state="item.state"   
                 :quantity="item.quantity"
                 :addToCart='addToCart'
                 :index ='index'
