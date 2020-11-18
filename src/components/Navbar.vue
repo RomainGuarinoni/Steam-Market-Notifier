@@ -19,7 +19,6 @@ export default {
         unblur(){
             this.skinZoom.blur=false;
             this.skinZoom.display=false;
-            console.log('salope')
         }
     }
 }

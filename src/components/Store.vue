@@ -1,6 +1,6 @@
 <template>
   <div class="store">
-      <span class="title_store">Welcome to the store</span>
+      <p><span class="title_store">Welcome to the store</span></p>
       <p>Select a class of skins in  the Nav bar situated on the left of your screen and add skin to your cart</p>
   </div>
 </template>
@@ -13,10 +13,11 @@ export default {
 
 <style>
 .store{
-    
-    text-align: center;
-    margin-top: 150px;
-    margin-left: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 .title_store{
     color: red;

@@ -12,7 +12,8 @@ export default new Vuex.Store({
       index: 1,
       id : 0,
       name : 'Vulcan',
-      state : 'factory new',
+      nameMarket : 'AK-47 | Vulcan (Factory New)',
+      state : 'Factory New',
       image : {
         src: require("@/assets/ak-k7_vulcan.png"),
         alt : "photo de l'ak-47"
@@ -22,7 +23,7 @@ export default new Vuex.Store({
     skin: [
       [
         {
-        name : 'Vulcan',
+        name : 'AK-47 | Vulcan',
         nameMarket : 'AK-47 | Vulcan (Factory New)',
         price : 0,
         state : 'factory new',
@@ -33,7 +34,7 @@ export default new Vuex.Store({
           },
         },
         {
-        name : 'Neon Rider',
+        name : 'AK-47 | Neon Rider',
         nameMarket : 'AK-47 | Neon Rider (Factory New)',
         price : 0,
         state : 'factory new',
@@ -44,7 +45,7 @@ export default new Vuex.Store({
           },
         },
         {
-        name : 'Fire Serpent',
+        name : 'AK-47 | Fire Serpent',
         nameMarket : 'AK-47 | Fire Serpent (Factory New)',
         price : 0,
         state : 'Factory New',
@@ -55,7 +56,7 @@ export default new Vuex.Store({
           },
         },
         {
-        name : 'Asiimov',
+        name : 'AK-47 | Asiimov',
         nameMarket : 'AK-47 | Asiimov (Factory New)',
         price : 0,
         state : 'Factory New',
@@ -66,7 +67,7 @@ export default new Vuex.Store({
           },
         },
         {
-          name : 'Fuel Injector',
+          name : 'AK-47 | Fuel Injector',
           nameMarket : 'AK-47 | Fuel Injector (Factory New)',
           price : 0,
           state : 'Factory New',
@@ -77,7 +78,7 @@ export default new Vuex.Store({
             },
           },
           {
-            name : 'Safari Mesh',
+            name : 'AK-47 | Safari Mesh',
             nameMarket : 'AK-47 | Safari Mesh (Factory New)',
             price : 0,
             state : 'Factory New',
@@ -91,7 +92,7 @@ export default new Vuex.Store({
       ],
       [
         {
-        name : 'Desolate Space',
+        name : 'M4A4 | Desolate Space',
         nameMarket : 'M4A4 | Desolate Space (Factory New)',
         price : 0,
         state : 'factory new',
@@ -102,7 +103,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Cyrex',
+        name : 'M4A4 | Cyrex',
         nameMarket : 'M4A1-S | Cyrex (Factory New)',
         price : 0,
         state : 'factory new',
@@ -113,7 +114,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Neo-Noir',
+        name : 'M4A4 | Neo-Noir',
         nameMarket : 'M4A4 | Neo-Noir (Factory New)',
         price : 0,
         state : 'factory new',
@@ -124,7 +125,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'The Emperor',
+        name : 'M4A4 | The Emperor',
         nameMarket : 'M4A4 | The Emperor (Factory New)',
         price : 0,
         state : 'factory new',
@@ -135,7 +136,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Hellfire',
+        name : 'M4A4 | Hellfire',
         nameMarket : 'M4A4 | Hellfire (Factory New)',
         price : 0,
         state : 'factory new',
@@ -146,7 +147,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Howl',
+        name : 'M4A4 | Howl',
         nameMarket : 'M4A4 | Howl (Factory New)',
         price : 0,
         state : 'factory new',
@@ -160,7 +161,7 @@ export default new Vuex.Store({
       ],
       [
         {
-        name : 'Hyper Beast',
+        name : 'AWP | Hyper Beast',
         nameMarket : 'AWP | Hyper Beast (Factory New)',
         price : 0,
         state : 'batle scared',
@@ -171,7 +172,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'The Prince',
+        name : 'AWP | The Prince',
         nameMarket : 'AWP | The Prince (Factory New)',
         price : 0,
         state : 'factory new',
@@ -182,7 +183,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Wildfire',
+        name : 'AWP | Wildfire',
         nameMarket : 'AWP | Wildfire (Factory New)',
         price : 0,
         state : 'factory new',
@@ -193,7 +194,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Neo-Noir',
+        name : 'AWP | Neo-Noir',
         nameMarket : 'AWP | Neo-Noir (Factory New)',
         price : 0,
         state : 'factory new',
@@ -204,7 +205,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Medusa',
+        name : 'AWP | Medusa',
         nameMarket : 'AWP | Medusa (Factory New)',
         price : 0,
         state : 'factory new',
@@ -215,7 +216,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Gungnir',
+        name : 'AWP | Gungnir',
         nameMarket : 'AWP | Gungnir (Factory New)',
         price : 0,
         state : 'factory new',
@@ -226,7 +227,7 @@ export default new Vuex.Store({
         },
       },
       {
-        name : 'Oni Taiji',
+        name : 'AWP | Oni Taiji',
         nameMarket : 'AWP | Oni Taiji (Factory New)',
         price : 0,
         state : 'factory new',
@@ -262,18 +263,22 @@ export default new Vuex.Store({
       state.cart[payload.index].price-=state.cart[payload.index].price/state.cart[payload.index].quantity;
     },
     CART_ADD_ITEM(state,payload){
-      state.cart.push({name : payload.name, price_act: payload.price_act, price: payload.price, image : payload.image, index : payload.index, id : payload.id});
+      state.cart.push({name : payload.name, price_act: payload.price_act, price: payload.price, image : payload.image, index : payload.index, id : payload.id,state: payload.state});
     },
     CARD_REMOVE_ITEM(state,payload){
       state.cart.splice(payload.index,1);
     },
     UPDATE_PRICE(state,payload){
       state.skin[payload.id][payload.index].price=payload.price;
+    },
+    UPDATE_PRICE_SKIN_ZOOM(state,payload){
+      state.skinZoom.price=payload.price;
+      state.skinZoom.state=payload.state;
     }
   },
   actions: {
     addToCart(context, payload){
-      context.commit('CART_ADD_ITEM',{name : payload.name,price: payload.price,price_act: payload.price_act, image : payload.image,index : payload.index, id : payload.id});
+      context.commit('CART_ADD_ITEM',{name : payload.name,price: payload.price,price_act: payload.price_act, image : payload.image,index : payload.index, id : payload.id,state : payload.state});
       context.commit('REDUCE_QTTY_SKIN',{id : payload.id, index : payload.index});
       
     },
@@ -289,6 +294,12 @@ export default new Vuex.Store({
           context.commit('UPDATE_PRICE',{ id : id, index : index, price :Math.round(test.data.median_avg_prices_15days[14][1]*100)/100})
         }
       }
+    },
+    async updateStateZoomSkin(context,payload){
+      const name_arg=context.state.skinZoom.name;
+      const state = payload.state;
+      const test = await axios.get('http://api.steamapis.com/market/item/730/'+name_arg + ' ('+ state+')'+'?api_key=EQaV7_NxMwv6Vz5yMCvfHPlJTSs')
+      context.commit('UPDATE_PRICE_SKIN_ZOOM',{state : payload.state, price :Math.round(test.data.median_avg_prices_15days[14][1]*100)/100})
     }
   },
   modules: {

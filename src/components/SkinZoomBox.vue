@@ -5,38 +5,68 @@
           <span class="imgClose"><button class="button_close" @click="unblur"><img class="zoomClose" src="../assets/close.png" alt="close" /></button>
           </span>
       </div>
-      <p class="zommState"> {{skinZoom.state}} </p>
         <div class="zoomImg">
             <img class="zoomPic" :src="skinZoom.image.src" :alt="skinZoom.image.alt">
         </div>
         <div class="zoomPrice">
-            <p>Actual price : {{skinZoom.price}} $</p>
+            <div class="zoomRadio">
+                <div class="zoomRadioInput">
+                    <input type="radio" name="stateZoom" id="Factory New" value="Factory New" v-model="state" @change="changeState">
+                    <label for="Factory New">Factory New</label>
+                </div>
+                <div class="zoomRadioInput">
+                    <input type="radio" name="stateZoom" id="Well-Worn" value="Well-Worn" v-model="state" @change="changeState">
+                    <label for="Well-Worn">Well-Worn</label>
+                </div>
+                <div class="zoomRadioInput">
+                    <input type="radio" name="stateZoom" id="Battle-Scarred" value="Battle-Scarred" v-model="state" @change="changeState">
+                    <label for="Battle-Scarred">Battle-Scarred</label>
+                </div>
+                <div class="zoomRadioInput">
+                    <input type="radio" name="stateZoom" id="Minimal Wear" value="Minimal Wear" v-model="state" @change="changeState">
+                    <label for="Minimal Wear">Minimal Wear</label>
+                </div>
+                <div class="zoomRadioInput">
+                    <input type="radio" name="stateZoom" id="Field-Tested" value="Field-Tested" v-model="state" @change="changeState">
+                    <label for="Field-Tested">Field-Tested</label>
+                </div>
+            </div>
+            <p>Actual price : <strong>{{skinZoom.price}} $</strong></p>
+        </div>
+        <div class="zoomPricePerso">
             <div>
                 <label for="zoomPriceForm">Your price : </label>
-                
                 <input type="number" id="zoomPriceForm" name="zoomPriceForm" placeholder="price">
-                
                 <span style="font-size:1.4em">$</span>
             </div>
+            <div class="zoomButton"><p><button @click="addToCart">Add to the Skin List</button></p></div>
+        </div>
+        
         </div> 
-        <div class="zoomButton"><p><button @click="addToCart">Add</button></p></div>
-  </div>
+        
 </template>
 
 <script>
 import {mapState} from 'vuex'
 export default {
     props:['id'],
+    data(){
+        return{
+            state: ""
+        }
+    },
     computed : {
     ...mapState(['skinZoom']),
 
     },
     methods : {
+        changeState(){
+            this.$store.dispatch('updateStateZoomSkin',{state : this.state})
+        },
         addToCart(){
             const price_input = document.getElementById('zoomPriceForm').value;
-            console.log(price_input)
-            console.log(this.skinZoom.id)
-            this.$store.dispatch('addToCart',{name : this.skinZoom.name, price_act : this.skinZoom.price, image : this.skinZoom.image, price : price_input, index : this.skinZoom.index, id : this.skinZoom.id});
+            this.$store.dispatch('addToCart',{name : this.skinZoom.name, price_act : this.skinZoom.price, image : this.skinZoom.image, price : price_input, index : this.skinZoom.index, id : this.skinZoom.id,state : this.skinZoom.state});
+            console.log(this.skinZoom.state)
             this.skinZoom.display=false;
             this.skinZoom.blur=false;
         },
@@ -49,6 +79,26 @@ export default {
 </script>
 
 <style scoped>
+.zoomRadioInput{
+    line-height: 30px;
+}
+.zoomPrice{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.zoomPrice p{
+    width:350px;
+}
+.zoomRadio{
+    text-align: left;
+    width: 300px;
+}
+.zoomPricePerso{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 .button_close{
     width: 2px;
     position: absolute;
@@ -70,7 +120,7 @@ button{
     margin-top: 15px;
     margin-right: 30px;
     border-radius: 20px;
-    width: 150px;
+    width: 250px;
 
 }
 input{
@@ -94,8 +144,8 @@ label{
 .box_zoom{
     text-align: center;
     border: 2px solid rgba(92, 87, 87, 0.329);
-    height: 500px;
-    width: 800px;
+    height: 600px;
+    width: 900px;
     border-radius: 20px;
     background: white;
 }
@@ -109,10 +159,7 @@ label{
    text-align: center;
 }
 
-.zoomPrice{
-    display: flex;
-    justify-content: space-around;
-}
+
 .zoom_title{
     font-size: 2.5em;
     color: red;

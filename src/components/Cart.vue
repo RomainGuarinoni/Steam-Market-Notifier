@@ -2,6 +2,7 @@
   <div>
     <div class="cart">
         <h3 id="title_cart">{{name}} </h3>
+        <p> {{state}} </p>
         <img :src="image.src" :alt="image.alt">
         <p> <strong>{{priceRound}} $</strong></p>
         <p><strong>Price margin : {{differencePrice}} $</strong> </p>
@@ -18,6 +19,9 @@ export default {
     name : {
       type : String
     },
+    state:{
+      type: String
+    },
     image : {
       type : Object,
       default : function(){return{
@@ -26,7 +30,7 @@ export default {
       }}
     },
     price : {
-      type : Number
+      type : String
     },
     index : {
       type : Number

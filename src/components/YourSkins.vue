@@ -19,6 +19,7 @@
       :key="index"
       :name ="item.name"
       :image="item.image"
+      :state='item.state'
       :price="item.price"
       :index="index"
       :deleteFromCart="deleteFromCart"

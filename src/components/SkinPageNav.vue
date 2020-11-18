@@ -1,20 +1,20 @@
 <template>
-<div class="box_all">
-    <SkinZoomBox v-show="skinZoom.display" class="SkinZoomClass"/>
-    <div class="skinPage" :class="{blur : skinZoom.blur}">
-        <div class="nav_select">
-            <p>Select the skin </p>
-            <ul>
-                <router-link @click.native="unblur" :to="{name : 'Skin' ,params:{id: 0}}"><li> ak-47</li></router-link>
-                <router-link @click.native="unblur" :to="{name : 'Skin',params:{id: 1}}"><li>M4A4</li></router-link>
-                <router-link @click.native="unblur" :to="{name : 'Skin',params:{id: 2}}"><li>Awp</li></router-link>
-            </ul>
-        </div>
-        <div class="skin">
-            <router-view></router-view>
+    <div class="box_all">
+        <SkinZoomBox v-show="skinZoom.display" class="SkinZoomClass"/>
+        <div class="skinPage" :class="{blur : skinZoom.blur}">
+            <div class="nav_select">
+                <p>Select the skin </p>
+                <ul>
+                    <router-link @click.native="unblur" :to="{name : 'Skin' ,params:{id: 0}}"><li> ak-47</li></router-link>
+                    <router-link @click.native="unblur" :to="{name : 'Skin',params:{id: 1}}"><li>M4A4</li></router-link>
+                    <router-link @click.native="unblur" :to="{name : 'Skin',params:{id: 2}}"><li>Awp</li></router-link>
+                </ul>
+            </div>
+            <div class="skin">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -38,21 +38,26 @@ export default {
 </script>
 
 <style scoped>
+.box_all{
+    display: flex;
+    justify-content: center;
+}
 .SkinZoomClass{
+    margin-left: 10%;
     position: absolute;
     z-index: 2;
-    left: 35%;
-    top: 35%;
+   
 
 }
 .skinPage{
+    width: 100%;
     position: absolute;
     z-index: 1;
     display: flex;
     height: 73vh;
 }
 .blur{
-    filter: blur(2px);
+    filter: blur(3px);
 }
 .nav_select{
     text-align: center;
@@ -60,14 +65,12 @@ export default {
     background-color: rgb(223, 219, 219);
 }
 .skin{
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
+    flex: 1;
     width: 100%;
+    overflow: scroll;
 }
 ul{
-    list-style-type: none;
-    width: 100%;
+    list-style-type: none;  
     text-align: center;
     margin: 0;
     padding: 0;

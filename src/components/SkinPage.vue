@@ -9,10 +9,10 @@
                 :state="item.state"   
                 :quantity="item.quantity"
                 :index ='index'
-                :id ='id'
+                :id ='Number(id)'
                 :notAvailable ='notAvailable'
                 :key="index"
-            />     
+            />    
         </div>
     </div>
 </template>
@@ -35,6 +35,9 @@ export default {
     ...mapState(['skin']),
   },
   methods :{
+    test(){
+      console.log(this.name)
+    },
     notAvailable(index){
       if (this.skin[this.id][index].quantity==0){
           return true;

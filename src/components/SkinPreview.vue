@@ -1,17 +1,11 @@
 <template>
     <div class="skin_box" :class="{notAvailableClass : notAvailable(index)}">
         <div class="skin_name"><h3>{{name}}</h3></div>
-        <div class=skin_box_info>
-            <div class="skin_pic">
-                <img :src="image.src" :alt="image.alt"/>
-            </div>
-            <div class="skin_info">
-                <p><strong>price :</strong> {{price}} $</p>
-                <p><strong>state :</strong> {{state}}</p> 
-            </div>
+        <div class="skinPreviewPic">
+            <img :src="image.src" :alt="image.alt">
         </div>
         <div class="button">
-            <button @click="upgradeSkinZoom">Add Skins</button>
+            <button @click="upgradeSkinZoom">Add to the Skins list</button>
         </div>
         <div v-show="notAvailable(index)" class="alert">
             <p>This skin is already in your Cart</p>
@@ -36,7 +30,7 @@ export default {
             type : String
         },
         id : {
-            type: String
+            type: Number
         },
         price: {
             type : Number
@@ -87,6 +81,10 @@ export default {
     text-align: center;
     padding: 0;
 }
+.skinPreviewPic{
+    text-align: center;
+    flex: 1;
+}
 .alert p{
     color: red;
     font-size: 0.9em;
@@ -95,36 +93,19 @@ button{
   outline-style: none;
 }
 img{
-    width: 300px;
+    width: 400px;
 }
-.skin_pic{
-    height: 220px;
-    display: flex;
-    align-items: center;
-}
+
 .skin_box{
     background-color:rgb(228, 225, 225);
     margin:20px 20px;
     border-radius: 20px;
     width: 550px;
     height: 280px;
-}
-.skin_box_info{
-    margin-top: 30px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-
-
-}
-.skin_info{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 110px;
-    width: 100%;
-    margin-left:15px;
 }
+
 .skin_name{
     text-align: left;
 }
@@ -138,11 +119,11 @@ h3{
     text-align: center;
 }
 .button{
-    text-align: right;
-    margin-right: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
 button{
-    border: none;
     border-radius: 30px;
     padding: 8px;
     cursor: pointer;
