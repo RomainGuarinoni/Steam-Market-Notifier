@@ -1,5 +1,6 @@
 <template>
 <div class='home'>
+    <div class="home_title"><p>The best site for Steam Market investment</p></div>
     <div class="widht_caroussel">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -73,6 +74,13 @@ export default {
 </script>
 
 <style scoped>
+.home_title{
+    font-size: 2em;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom:20px;
+    font-weight: bold;
+}
 .home{
     padding: 0;
     margin: 0;
@@ -95,13 +103,13 @@ export default {
 .info_title{
     font-size: 4em;
     text-align: center;
-    margin-top: 90px;
+    margin-top: 50px;
 }
 .info:last-child{
     margin-bottom: 0;
 }
 .carousel .carousel-item {
-  height: 500px;
+  height: 600px;
 }
 
 .carousel-item img {

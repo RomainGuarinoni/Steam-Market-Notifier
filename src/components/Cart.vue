@@ -6,6 +6,7 @@
         <img :src="image.src" :alt="image.alt">
         <p> <strong>{{priceRound}} $</strong></p>
         <p><strong>Price margin : {{differencePrice}} $</strong> </p>
+        <button class="cart_button" @click="modify">Modify</button>
         <button class="cart_button" @click="deleteFromCart(index)">Delete</button>
     </div>
     <hr/>
@@ -48,6 +49,10 @@ export default {
     },
     differencePrice(){
       return Math.round((this.price_act - this.price)*100)/100
+    }
+  },methods:{
+    modify(){
+      this.$emit('modify-cart-price',{ index : this.index, modify: true})
     }
   }
 }

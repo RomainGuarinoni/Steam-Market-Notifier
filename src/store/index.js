@@ -26,7 +26,7 @@ export default new Vuex.Store({
         name : 'AK-47 | Vulcan',
         nameMarket : 'AK-47 | Vulcan (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/ak-k7_vulcan.png"),
@@ -37,7 +37,7 @@ export default new Vuex.Store({
         name : 'AK-47 | Neon Rider',
         nameMarket : 'AK-47 | Neon Rider (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/ak-47_neon.png"),

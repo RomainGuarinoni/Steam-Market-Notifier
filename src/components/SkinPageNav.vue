@@ -42,22 +42,22 @@ export default {
     text-decoration: none;
 }
 .box_all{
+    height: 91vh;
     display: flex;
     justify-content: center;
 }
 .SkinZoomClass{
-    margin-left: 10%;
+    margin-left: 15%;
+    align-self: center;
     position: absolute;
     z-index: 2;
-   
-
 }
 .skinPage{
     width: 100%;
     position: absolute;
     z-index: 1;
     display: flex;
-    height: 73vh;
+    height: 91vh;
 }
 .blur{
     filter: blur(3px);
@@ -65,7 +65,7 @@ export default {
 .nav_select{
     text-align: center;
     width: 400px;
-    background-color: rgb(223, 219, 219);
+    background-color: rgba(226, 225, 225, 0.589);
 }
 .skin{
     flex: 1;
@@ -80,6 +80,8 @@ ul{
 }
 .nav_select p{
     margin-top: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
     font-size: 2em;
 }
 li{
@@ -93,7 +95,7 @@ li{
 li:hover{
     text-decoration: none ;
     font-weight: bold;
-    background-color: rgb(161, 161, 161);
+    background-color: rgba(211, 208, 208, 0.651);
 }
 
 </style>

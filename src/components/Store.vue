@@ -11,8 +11,9 @@ export default {
 }
 </script>
 
-<style>
+<style >
 .store{
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +21,7 @@ export default {
     width: 100%;
 }
 .title_store{
-    color: red;
+    color:  rgb(59, 58, 59);
     font-size: 5em;
 }
 p{

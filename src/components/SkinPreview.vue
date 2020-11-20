@@ -1,15 +1,12 @@
 <template>
-    <div class="skin_box" :class="{notAvailableClass : notAvailable(index)}">
+    <div class="skin_box" >
         <div class="skin_name"><h3>{{name}}</h3></div>
         <div class="skinPreviewPic">
             <img :src="image.src" :alt="image.alt">
         </div>
         <div class="button">
             <button @click="upgradeSkinZoom">Add to the Skins list</button>
-        </div>
-        <div v-show="notAvailable(index)" class="alert">
-            <p>This skin is already in your Cart</p>
-        </div>  
+        </div> 
     </div>
 </template>
 
@@ -32,26 +29,12 @@ export default {
         id : {
             type: Number
         },
-        price: {
-            type : Number
-        },
-        state : {
-            type : String
-        },
-        quantity : {
-            type : Number,
-            default : 0
-        },
         addToCart:{
             type : Function
         },
         index : {
             type : Number
         },
-        notAvailable:{
-            type : Function
-        }
-
     },
     computed : {
         ...mapState(['skinZoom'])
@@ -61,9 +44,7 @@ export default {
             this.skinZoom.name=this.name;
             this.skinZoom.index= this.index;
             this.skinZoom.id=this.id;
-            this.skinZoom.state=this.state;
             this.skinZoom.image=this.image;
-            this.skinZoom.price=this.price;
             this.skinZoom.blur=true;
             this.skinZoom.display=true;
         }
@@ -111,7 +92,7 @@ img{
 }
 
 h3{
-    color: rgb(228, 32, 32);
+    color: rgb(59, 58, 59);
     font-size: 2em;
     padding: 0;
     margin: 0;

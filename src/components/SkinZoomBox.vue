@@ -11,11 +11,11 @@
         <div class="zoomPrice">
             <div class="zoomRadio">
                 <div class="zoomRadioInput">
-                    <input type="radio" name="stateZoom" id="Factory New" value="Factory New" v-model="state" @change="changeState">
+                    <input type="radio" checked name="stateZoom" id="Factory New" value="Factory New"  v-model="state" @change="changeState">
                     <label for="Factory New">Factory New</label>
                 </div>
                 <div class="zoomRadioInput">
-                    <input type="radio" name="stateZoom" id="Well-Worn" value="Well-Worn" v-model="state" @change="changeState">
+                    <input type="radio"   name="stateZoom" id="Well-Worn" value="Well-Worn" v-model="state" @change="changeState">
                     <label for="Well-Worn">Well-Worn</label>
                 </div>
                 <div class="zoomRadioInput">
@@ -41,7 +41,6 @@
             </div>
             <div class="zoomButton"><p><button @click="addToCart">Add to the Skin List</button></p></div>
         </div>
-        <p class="skinZoomError" v-show="error">You already have this request in your skin list</p>
     </div> 
         
 </template>
@@ -53,7 +52,6 @@ export default {
     data(){
         return{
             state: "",
-            error: false
         }
     },
     computed : {
@@ -61,22 +59,27 @@ export default {
 
     },
     methods : {
+        test(){
+            this.test_arg++;
+            console.log(this.test_arg)
+        },
         changeState(){
             this.$store.dispatch('updateStateZoomSkin',{state : this.state})
         },
         addToCart(){
             let exist=false;
+            let index_same;
             console.log(this.cart.length)
             for(let i=0;i<this.cart.length;i++){
                 if((this.skinZoom.id==this.cart[i].id) && (this.skinZoom.index==this.cart[i].index) && (this.skinZoom.state==this.cart[i].state)){
                     exist=true;
-                    console.log(this.cart[i].id)
-                    console.log(this.cart[i].index)
-                    console.log(this.cart[i].state)
+                    index_same=i;
                 }
             }
             if(exist==true){
-                this.error=true;
+                this.cart[index_same].price=document.getElementById('zoomPriceForm').value;
+                this.skinZoom.display=false;
+                this.skinZoom.blur=false; 
             }
             else{
             const price_input = document.getElementById('zoomPriceForm').value;
@@ -88,16 +91,14 @@ export default {
         unblur(){
             this.skinZoom.display= false;
             this.skinZoom.blur=false;
+            this.skinZoom.state="";
+            this.skinZoom.price="";
         }
     }
 }
 </script>
 
 <style scoped>
-
-.skinZoomError{
-    color: red;
-}
 .zoomRadioInput{
     line-height: 30px;
 }
@@ -181,7 +182,7 @@ label{
 
 .zoom_title{
     font-size: 2.5em;
-    color: red;
+    color:  rgb(59, 58, 59);
     font-weight: bold;
 }
 </style>
