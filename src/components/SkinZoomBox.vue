@@ -1,5 +1,5 @@
 <template>
-  <div class="box_zoom">
+  <div class="box_zoom" >
       <div class="zoom_title_box">
           <span class="zoom_title"> {{skinZoom.name}} </span>
           <span class="imgClose"><button class="button_close" @click="unblur"><img class="zoomClose" src="../assets/close.png" alt="close" /></button>
@@ -41,8 +41,8 @@
             </div>
             <div class="zoomButton"><p><button @click="addToCart">Add to the Skin List</button></p></div>
         </div>
-        
-        </div> 
+        <p class="skinZoomError" v-show="error">You already have this request in your skin list</p>
+    </div> 
         
 </template>
 
@@ -52,11 +52,12 @@ export default {
     props:['id'],
     data(){
         return{
-            state: ""
+            state: "",
+            error: false
         }
     },
     computed : {
-    ...mapState(['skinZoom']),
+    ...mapState(['skinZoom','cart']),
 
     },
     methods : {
@@ -64,11 +65,25 @@ export default {
             this.$store.dispatch('updateStateZoomSkin',{state : this.state})
         },
         addToCart(){
+            let exist=false;
+            console.log(this.cart.length)
+            for(let i=0;i<this.cart.length;i++){
+                if((this.skinZoom.id==this.cart[i].id) && (this.skinZoom.index==this.cart[i].index) && (this.skinZoom.state==this.cart[i].state)){
+                    exist=true;
+                    console.log(this.cart[i].id)
+                    console.log(this.cart[i].index)
+                    console.log(this.cart[i].state)
+                }
+            }
+            if(exist==true){
+                this.error=true;
+            }
+            else{
             const price_input = document.getElementById('zoomPriceForm').value;
             this.$store.dispatch('addToCart',{name : this.skinZoom.name, price_act : this.skinZoom.price, image : this.skinZoom.image, price : price_input, index : this.skinZoom.index, id : this.skinZoom.id,state : this.skinZoom.state});
-            console.log(this.skinZoom.state)
             this.skinZoom.display=false;
-            this.skinZoom.blur=false;
+            this.skinZoom.blur=false;   
+            }
         },
         unblur(){
             this.skinZoom.display= false;
@@ -79,6 +94,10 @@ export default {
 </script>
 
 <style scoped>
+
+.skinZoomError{
+    color: red;
+}
 .zoomRadioInput{
     line-height: 30px;
 }

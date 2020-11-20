@@ -5,9 +5,9 @@
             <div class="nav_select">
                 <p>Select the skin </p>
                 <ul>
-                    <router-link @click.native="unblur" :to="{name : 'Skin' ,params:{id: 0}}"><li> ak-47</li></router-link>
-                    <router-link @click.native="unblur" :to="{name : 'Skin',params:{id: 1}}"><li>M4A4</li></router-link>
-                    <router-link @click.native="unblur" :to="{name : 'Skin',params:{id: 2}}"><li>Awp</li></router-link>
+                    <router-link class="skinnavbar" @click.native="unblur" :to="{name : 'Skin' ,params:{id: 0}}"><li> ak-47</li></router-link>
+                    <router-link class="skinnavbar" @click.native="unblur" :to="{name : 'Skin',params:{id: 1}}"><li>M4A4</li></router-link>
+                    <router-link class="skinnavbar" @click.native="unblur" :to="{name : 'Skin',params:{id: 2}}"><li>Awp</li></router-link>
                 </ul>
             </div>
             <div class="skin">
@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style scoped>
+.skinnavbar{
+    text-decoration: none;
+}
 .box_all{
     display: flex;
     justify-content: center;

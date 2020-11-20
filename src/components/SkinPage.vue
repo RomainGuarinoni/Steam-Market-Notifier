@@ -14,6 +14,7 @@
                 :key="index"
             />    
         </div>
+        <p> compte à ionsukter sdes grands morts : https://steamcommunity.com/profiles/76561198399970578/</p>
     </div>
 </template>
 
@@ -35,9 +36,7 @@ export default {
     ...mapState(['skin']),
   },
   methods :{
-    test(){
-      console.log(this.name)
-    },
+
     notAvailable(index){
       if (this.skin[this.id][index].quantity==0){
           return true;
@@ -49,7 +48,6 @@ export default {
   },
   mounted(){
     this.$store.dispatch('uptadePriceSkins')
-    console.log(this.id)
   },
 }
 </script>

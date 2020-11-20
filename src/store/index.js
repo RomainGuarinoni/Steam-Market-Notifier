@@ -279,8 +279,7 @@ export default new Vuex.Store({
   actions: {
     addToCart(context, payload){
       context.commit('CART_ADD_ITEM',{name : payload.name,price: payload.price,price_act: payload.price_act, image : payload.image,index : payload.index, id : payload.id,state : payload.state});
-      context.commit('REDUCE_QTTY_SKIN',{id : payload.id, index : payload.index});
-      
+      console.log('passé')
     },
     deleteFromCart(context,payload){
       context.commit('INCREASE_QTTY_SKIN',{index : payload.index});
