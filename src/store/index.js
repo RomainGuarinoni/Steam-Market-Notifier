@@ -95,7 +95,7 @@ export default new Vuex.Store({
         name : 'M4A4 | Desolate Space',
         nameMarket : 'M4A4 | Desolate Space (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/m4a4_space.png"),
@@ -106,7 +106,7 @@ export default new Vuex.Store({
         name : 'M4A4 | Cyrex',
         nameMarket : 'M4A1-S | Cyrex (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/m4a1s_cyrex.png"),
@@ -117,7 +117,7 @@ export default new Vuex.Store({
         name : 'M4A4 | Neo-Noir',
         nameMarket : 'M4A4 | Neo-Noir (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/m4a4_neo.png"),
@@ -128,7 +128,7 @@ export default new Vuex.Store({
         name : 'M4A4 | The Emperor',
         nameMarket : 'M4A4 | The Emperor (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/m4a4_emperor.png"),
@@ -139,7 +139,7 @@ export default new Vuex.Store({
         name : 'M4A4 | Hellfire',
         nameMarket : 'M4A4 | Hellfire (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/m4a4_helfire.png"),
@@ -150,7 +150,7 @@ export default new Vuex.Store({
         name : 'M4A4 | Howl',
         nameMarket : 'M4A4 | Howl (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/m4a4_howl.png"),
@@ -164,7 +164,7 @@ export default new Vuex.Store({
         name : 'AWP | Hyper Beast',
         nameMarket : 'AWP | Hyper Beast (Factory New)',
         price : 0,
-        state : 'batle scared',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/awp_hyper_beast.png"),
@@ -175,7 +175,7 @@ export default new Vuex.Store({
         name : 'AWP | The Prince',
         nameMarket : 'AWP | The Prince (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/awp_prince.png"),
@@ -186,7 +186,7 @@ export default new Vuex.Store({
         name : 'AWP | Wildfire',
         nameMarket : 'AWP | Wildfire (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/awp_wild.png"),
@@ -197,7 +197,7 @@ export default new Vuex.Store({
         name : 'AWP | Neo-Noir',
         nameMarket : 'AWP | Neo-Noir (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/awp_neo.png"),
@@ -208,7 +208,7 @@ export default new Vuex.Store({
         name : 'AWP | Medusa',
         nameMarket : 'AWP | Medusa (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/awp_medusa.png"),
@@ -219,7 +219,7 @@ export default new Vuex.Store({
         name : 'AWP | Gungnir',
         nameMarket : 'AWP | Gungnir (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/awp_gungnir.png"),
@@ -230,7 +230,7 @@ export default new Vuex.Store({
         name : 'AWP | Oni Taiji',
         nameMarket : 'AWP | Oni Taiji (Factory New)',
         price : 0,
-        state : 'factory new',
+        state : 'Factory New',
         quantity : 1,
         image : {
           src: require("@/assets/awp_oni.png"),
@@ -238,6 +238,74 @@ export default new Vuex.Store({
         },
       },
   
+    ],
+    [
+      {
+        name : 'USP-S | Kill Confirmed',
+        nameMarket : 'USP-S | Kill Confirmed (Factory New)',
+        price : 0,
+        state : 'Factory New',
+        quantity : 1,
+        image : {
+          src: require("@/assets/kill_confirmed.png"),
+          alt : "photo de la m4a4" 
+        },
+      },
+      {
+        name : 'USP-S | Neo-Noir',
+        nameMarket : 'USP-S | Neo-Noir (Factory New)',
+        price : 0,
+        state : 'Factory New',
+        quantity : 1,
+        image : {
+          src: require("@/assets/usp_neo.png"),
+          alt : "photo de la m4a4" 
+        },
+      },
+      {
+        name : 'USP-S | Orion',
+        nameMarket : 'USP-S | Orion (Factory New)',
+        price : 0,
+        state : 'Factory New',
+        quantity : 1,
+        image : {
+          src: require("@/assets/orion.png"),
+          alt : "photo de la m4a4" 
+        },
+      },
+      {
+        name : 'USP-S | Cortex',
+        nameMarket : 'USP-S | Cortex (Factory New)',
+        price : 0,
+        state : 'Factory New',
+        quantity : 1,
+        image : {
+          src: require("@/assets/cortex.png"),
+          alt : "photo de la m4a4" 
+        },
+      },
+      {
+        name : 'USP-S | Overgrowth',
+        nameMarket : 'USP-S | Overgrowth (Factory New)',
+        price : 0,
+        state : 'Factory New',
+        quantity : 1,
+        image : {
+          src: require("@/assets/over.png"),
+          alt : "photo de la m4a4" 
+        },
+      },
+      {
+        name : 'USP-S | Torque',
+        nameMarket : 'USP-S | Torque (Factory New)',
+        price : 0,
+        state : 'Factory New',
+        quantity : 1,
+        image : {
+          src: require("@/assets/torque.png"),
+          alt : "photo de la m4a4" 
+        },
+      },
     ]
   ],
   cart : [],

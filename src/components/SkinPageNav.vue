@@ -8,6 +8,7 @@
                     <router-link class="skinnavbar" @click.native="unblur" :to="{name : 'Skin' ,params:{id: 0}}"><li> ak-47</li></router-link>
                     <router-link class="skinnavbar" @click.native="unblur" :to="{name : 'Skin',params:{id: 1}}"><li>M4A4</li></router-link>
                     <router-link class="skinnavbar" @click.native="unblur" :to="{name : 'Skin',params:{id: 2}}"><li>Awp</li></router-link>
+                    <router-link class="skinnavbar" @click.native="unblur" :to="{name : 'Skin',params:{id: 3}}"><li>USP-S</li></router-link>
                 </ul>
             </div>
             <div class="skin">
@@ -49,7 +50,8 @@ export default {
 .SkinZoomClass{
     margin-left: 15%;
     align-self: center;
-    position: absolute;
+    position: relative;
+    margin: 100px 0 100px 400px;
     z-index: 2;
 }
 .skinPage{
