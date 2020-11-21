@@ -14,7 +14,6 @@
                 :key="index"
             />    
         </div>
-        <p> compte à ionsukter sdes grands morts : https://steamcommunity.com/profiles/76561198399970578/</p>
     </div>
 </template>
 

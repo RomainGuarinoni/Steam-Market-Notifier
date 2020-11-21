@@ -76,10 +76,21 @@ export default {
 <style scoped>
 .home_title{
     font-size: 2em;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 100px;
     font-weight: bold;
+    
+}
+.site_info{
+    position: relative;
+    z-index: 1;
+}
+.widht_caroussel{
+    position: relative;
+    z-index: 1;
 }
 .home{
     padding: 0;

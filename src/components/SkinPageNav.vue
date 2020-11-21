@@ -42,7 +42,7 @@ export default {
     text-decoration: none;
 }
 .box_all{
-    height: 91vh;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
