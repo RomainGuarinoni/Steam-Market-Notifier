@@ -7,11 +7,12 @@
 
 <script>
 import Navbar from './components/Navbar'
+
 export default {
   name: 'App',
   components: {
     Navbar, 
-  }
+  },
 }
 </script>
 
@@ -21,6 +22,8 @@ export default {
   display: flex;
   height: 100%;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 #flex_box{
   flex: 1;

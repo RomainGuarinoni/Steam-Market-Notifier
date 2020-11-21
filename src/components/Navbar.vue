@@ -3,7 +3,7 @@
     <div class="nav_title">
         <router-link @click.native="unblur" class="navbar_main_title" :to="{name : 'Home'}">
         <p><img id="steamLogo" src="../assets/steam.png" alt="logo de steam"></p>
-        <p>Steam market Notifier</p>
+        <p id="nav_title_p">Steam market Notifier</p>
         </router-link>
     </div>
     <div class="navbar">
@@ -28,7 +28,7 @@ export default {
             this.skinZoom.blur=false;
             this.skinZoom.display=false;
         }
-    }
+    },
 }
 </script>
 
@@ -69,7 +69,7 @@ ul{
 #steamLogo{
     width: 50px;
 }
-.nav_title p{
+#nav_title_p{
     font-family: 'Anton', sans-serif;
     margin-left: 20px;
     font-size: 2em;

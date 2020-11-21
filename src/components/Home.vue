@@ -60,7 +60,7 @@
                 au prix de ton choix!! N'attends plus , va dans le skin store et choisis les skins de ton rêve !!
             </p>
         </div>
-        <div class="joinUs">
+        <div data-aos="fade-up">
             <p class="joinsUsTitle">Join us there</p>
             <div class=joinUsIcon>
                 <a href="https://github.com/RomainGuarinoni" target="_blank"><span class="icon"><i class="fab fa-github"></i></span></a>
@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import {gsap} from "gsap"
 export default {
     name : 'Home',
     data(){
@@ -86,7 +87,13 @@ export default {
             image_5 : require('@/assets/knife.png'),
             image_6 : require('@/assets/player.png')
         }
-    }
+    },
+    mounted:function(){
+        const tl=gsap.timeline();
+        tl.from(".home_title",{duration: 0.5, opacity:0,y:-50});
+        tl.from(".widht_caroussel",{duration: 1,opacity: 0});
+        tl.from(".site_info",{opacity:0,y:50,duration:1});
+    }  
 }
 </script>
 
@@ -118,6 +125,7 @@ a{
     font-weight: bold;
     
 }
+
 .site_info{
     position: relative;
     z-index: 1;
