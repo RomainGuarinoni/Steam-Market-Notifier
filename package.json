@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vue/cli-plugin-router": "^4.5.8",
+    "aos": "^2.3.4",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
