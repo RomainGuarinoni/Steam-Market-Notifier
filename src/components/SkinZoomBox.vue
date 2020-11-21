@@ -2,7 +2,7 @@
   <div class="box_zoom" >
       <div class="zoom_title_box">
           <span class="zoom_title"> {{skinZoom.name}} </span>
-          <span class="imgClose"><button class="button_close" @click="unblur"><img class="zoomClose" src="../assets/close.png" alt="close" /></button>
+          <span class="imgClose"><img @click="unblur" class="zoomClose" src="../assets/close.png" alt="close" />
           </span>
       </div>
         <div class="zoomImg">
@@ -133,7 +133,8 @@ export default {
     text-align: right;
 }
 .zoomClose{
-    width: 50px;
+    width: 45px;
+    cursor: pointer;
 }
 
 button{
@@ -184,5 +185,10 @@ label{
     font-size: 2.5em;
     color:  rgb(59, 58, 59);
     font-weight: bold;
+}
+.imgClose{
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
 </style>

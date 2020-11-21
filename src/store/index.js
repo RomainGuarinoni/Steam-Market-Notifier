@@ -274,6 +274,9 @@ export default new Vuex.Store({
     UPDATE_PRICE_SKIN_ZOOM(state,payload){
       state.skinZoom.price=payload.price;
       state.skinZoom.state=payload.state;
+    },
+    UPDATE_PRICE_CART(state,payload){
+      state.cart[payload.index].price=payload.price;
     }
   },
   actions: {
@@ -284,6 +287,9 @@ export default new Vuex.Store({
     deleteFromCart(context,payload){
       context.commit('INCREASE_QTTY_SKIN',{index : payload.index});
       context.commit('CARD_REMOVE_ITEM',{index : payload.index});
+    },
+    updatePriceCart(context,payload){
+      context.commit('UPDATE_PRICE_CART',payload);
     },
     async uptadePriceSkins(context){
       for(let id=0;id<context.state.skin.length;id++){

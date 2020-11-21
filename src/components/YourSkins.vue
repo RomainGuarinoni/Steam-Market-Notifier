@@ -1,11 +1,12 @@
 <template>
 <div class="cartBoxAll">
     <ModifyBox 
+    @close="close"
     class="modifyBox" 
-    v-show="modify_arg"  
+    v-if="modify"  
     :index="index"
     />
-    <div class="YourSkins">
+    <div class="YourSkins" :class='{blur : modify}'>
       <div class="YourSkinsTitleBox">
         <p><span class="YourSkinsTitle">Your Skins</span></p>
       </div>
@@ -47,8 +48,8 @@ export default {
   },
   data(){
     return{
-      modify_arg: false,
-      index:null,
+      modify: false,
+      index: ""
     }
   },
   computed:{
@@ -65,23 +66,29 @@ export default {
     }
   },
   methods:{
+    close(){
+      this.modify=false;
+    },
     deleteFromCart(index){
       this.$store.dispatch('deleteFromCart',{index : index});
     },
     openModidfyBox(payload){
       this.index=payload.index;
-      this.modify_arg=true;
-      console.log(this.index);
+      this.modify=true;
     }
   }
 }
 </script>
 
 <style>
+.blur{
+  filter: blur(3px);
+}
 .cartBoxAll{
-  height: 100vh;
+  height: 91vh;
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 }
 .modifyBox{
   margin: auto;
