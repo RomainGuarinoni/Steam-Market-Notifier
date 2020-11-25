@@ -34,12 +34,18 @@ export default {
 #introApp{
   position: absolute;
   z-index: 1;
-  height: 100vh;
-  width: 100%;
   background: #0a202b;
+  min-width: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media all and (max-width: 1089px){
+  #introApp{
+    display: flex;
+    flex-direction: column;
+  }
 }
 #LogoIntro{
   font-family: 'Anton', sans-serif;
