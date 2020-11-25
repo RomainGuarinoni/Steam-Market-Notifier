@@ -63,11 +63,11 @@
         <div data-aos="fade-up">
             <p class="joinsUsTitle">Join us there</p>
             <div class=joinUsIcon>
-                <a href="https://github.com/RomainGuarinoni" target="_blank"><span class="icon"><i class="fab fa-github"></i></span></a>
-                <a href="#"><span class="icon"><i class="fab fa-instagram"></i></span></a>
-                <a href="#"><span class="icon"><i class="fab fa-facebook"></i></span></a>
-                <a href="#"><span class="icon"><i class="fab fa-twitter"></i></span></a>
-                <a href="mailto:romain.guar01@gmail.com"><span class="icon"><i class="fas fa-envelope"></i></span></a>
+                <p><a href="https://github.com/RomainGuarinoni" target="_blank"><span class="icon"><i class="fab fa-github"></i></span></a></p>
+                <p><a href="#"><span class="icon"><i class="fab fa-instagram"></i></span></a></p>
+                <p><a href="#"><span class="icon"><i class="fab fa-facebook"></i></span></a></p>
+                <p><a href="#"><span class="icon"><i class="fab fa-twitter"></i></span></a></p>
+                <p><a href="mailto:romain.guar01@gmail.com"><span class="icon"><i class="fas fa-envelope"></i></span></a></p>
             </div>
         </div>
     </div>
@@ -98,6 +98,32 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width : 1500px){
+    .info{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 50px 100px 50px 100px ;
+    }
+    .info p{
+        text-align: center !important;
+        margin-right: 0px !important;
+    }
+}
+@media all and (max-width: 964px){
+    .home_title{
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+}
+@media all and (max-width: 245px){
+    .joinUsIcon{
+        display: flex;
+        flex-direction: column;
+    }
+}
 a{
     color: black;
     transition: all ease 200ms;
@@ -113,21 +139,20 @@ a{
     font-size: 3em;
 }
 .icon{
-    font-size: 5em;
+    font-size: 4em;
 }
 .home_title{
     font-size: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
     height: 100px;
     font-weight: bold;
     
 }
 
 .site_info{
-    position: relative;
+    position: absolute;
     z-index: 1;
 }
 .widht_caroussel{
@@ -142,7 +167,8 @@ a{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 50px 100px 50px 200px ;
+    margin: 50px 100px 50px 100px ;
+    
 }
 .info p{
     font-size: 1.5em;
@@ -166,11 +192,17 @@ a{
 }
 
 .carousel-item img {
-    position: absolute;
+    position: relative;
     object-fit:cover;
     top: -300px;
     left: 0;
-    min-height: 500px;
+}
+@media screen and (max-width : 1623px){
+    .carousel-item img{
+        position:block !important;
+        top : 0;
+        left: 0
+    }
 }
 
 </style>

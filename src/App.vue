@@ -57,8 +57,8 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   display: flex;
-  height: 100%;
   flex-direction: column;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
 }

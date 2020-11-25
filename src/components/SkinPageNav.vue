@@ -61,6 +61,27 @@ export default {
     display: flex;
     height: 91vh;
 }
+@media screen and (max-width: 1297px){
+    .skinPage{
+        display: flex;
+        flex-direction: column;
+        height: auto !important;
+    }
+    .nav_select{
+        width: 100% !important;
+    }
+    .nav_select ul{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .skin{
+        height: 100%;
+    }
+    .SkinZoomClass{
+        margin: 50px 0 !important;
+    }
+}
 .blur{
     filter: blur(3px);
 }
