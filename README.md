@@ -1,6 +1,6 @@
 # Steam Market Notifier
 
-Pour accéder au site : [Steam Market Notifier](https://romainguarinoni.github.io/Steam-Market-Notifier/)
+**Pour accéder au site : [Steam Market Notifier](https://romainguarinoni.github.io/Steam-Market-Notifier/)**
 
 ce site est mon premier projet en utilisant le framework **Vue.js** . En tant que grand fan du jeux *Counter Strike - Global Offensive*
 et de son marché de skins, j'ai décidé de créer un site permmettant aux joueurs d'être notifiés lorsque leurs skins préférés sont
