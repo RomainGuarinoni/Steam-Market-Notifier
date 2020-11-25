@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/vuecli-test/'
+    publicPath: '/Steam-Market-Notifier/'
   }
