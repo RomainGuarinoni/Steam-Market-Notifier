@@ -41,7 +41,7 @@ async uptadePriceSkins(context){
 
 ## Les améliorations à apportés au sites
 
-- [x] Developpper tout le back-end de l'app sous *express / MongoDb / express* ou *Laravel*
-- [x] fix le bug des requetes HTTP
-- [x] remplir entierement le skin store 
-- [x] mettre en plaxce un système de notifications 
+- [ ] Developpper tout le back-end de l'app sous *express / MongoDb / express* ou *Laravel*
+- [ ] fix le bug des requetes HTTP
+- [ ] remplir entierement le skin store 
+- [ ] mettre en plaxce un système de notifications 
